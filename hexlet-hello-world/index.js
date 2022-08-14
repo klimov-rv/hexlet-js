@@ -20,18 +20,14 @@ const user = {
 
 _.capitalize(user.name);
 
+// const company1 = { name: 'Hexlet', state: 'moderating', website: 'https://hexlet.io' };
 
+// const company2 = { name: 'CodeBasics', state: 'published', website: 'https://code-basics.com' };
 
- 
+// console.log(is(company1, company2)); // false
 
-const company1 = { name: 'Hexlet', state: 'moderating', website: 'https://hexlet.io' };
+const company1 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
 
-const company2 = { name: 'CodeBasics', state: 'published', website: 'https://code-basics.com' };
+const company2 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
 
-is(company1, company2); // false
-
-// const company1 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
-
-// const company2 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
-
-// is(company1, company2); // true
+console.log(is(company1, company2)); // true
