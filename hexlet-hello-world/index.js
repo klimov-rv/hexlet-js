@@ -1,33 +1,28 @@
 // По общепринятому соглашению, lodash импортируется под именем _
-import _ from 'lodash';
+// import _ from 'lodash';
 
-import is from './company.js';
+import getDomainInfo from './domain.js';
 
-// Пересечение массивов
-_.intersection([2, 1], [2, 3]); // => [2]
+// Если домен передан без указания протокола,
+// то по умолчанию берется http
 
-// capitalize делает первую букву заглавной
-_.capitalize('hello'); // Hello
+console.log(getDomainInfo('yandex.ru'));
 
-// console.log('Hello, Hexlet!');
-// console.log(_.last(['one', 'two']));
+// {
+//   scheme: 'http',
+//   name: 'yandex.ru',
+// }
 
-const user = {
-  name: 'roman',
-  married: true,
-  age: 34,
-};
+console.log(getDomainInfo('https://hexlet.io'));
 
-_.capitalize(user.name);
+// {
+//   scheme: 'https',
+//   name: 'hexlet.io',
+// }
 
-// const company1 = { name: 'Hexlet', state: 'moderating', website: 'https://hexlet.io' };
+console.log(getDomainInfo('http://google.com/test.html'));
 
-// const company2 = { name: 'CodeBasics', state: 'published', website: 'https://code-basics.com' };
-
-// console.log(is(company1, company2)); // false
-
-const company1 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
-
-const company2 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
-
-console.log(is(company1, company2)); // true
+// {
+//   scheme: 'http',
+//   name: 'google.com',
+// }
