@@ -4,7 +4,7 @@
 import countWords from './words.js';
 
 // Если предложение пустое, то возвращается пустой объект
-countWords('');
+console.log(countWords(''));
 // {}
 
 const text1 = 'one two three two ONE one wow';
