@@ -8,7 +8,7 @@ export default function getFileInfo(domainString) {
     domainScheme = 'http';
   }
   const domainName = _.first(_.last(domainString.split('//')).split('/'));
-  const domainInfo = { domainScheme, domainName };
+  const domainInfo = { scheme: domainScheme, name: domainName };
 
   return domainInfo;
 }
