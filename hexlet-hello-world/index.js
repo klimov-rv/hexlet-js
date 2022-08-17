@@ -1,28 +1,28 @@
 // По общепринятому соглашению, lodash импортируется под именем _
 // import _ from 'lodash';
 
-import getDomainInfo from './domain.js';
+import countWords from './words.js';
 
-// Если домен передан без указания протокола,
-// то по умолчанию берется http
+// Если предложение пустое, то возвращается пустой объект
+countWords('');
+// {}
 
-console.log(getDomainInfo('yandex.ru'));
-
+const text1 = 'one two three two ONE one wow';
+console.log(countWords(text1));
 // {
-//   scheme: 'http',
-//   name: 'yandex.ru',
+//   one: 3,
+//   two: 2,
+//   three: 1,
+//   wow: 1,
 // }
 
-console.log(getDomainInfo('https://hexlet.io'));
-
+const text2 = 'another one sentence with strange Words words';
+console.log(countWords(text2));
 // {
-//   scheme: 'https',
-//   name: 'hexlet.io',
-// }
-
-console.log(getDomainInfo('http://google.com/test.html'));
-
-// {
-//   scheme: 'http',
-//   name: 'google.com',
+//   another: 1,
+//   one: 1,
+//   sentence: 1,
+//   with: 1,
+//   strange: 1,
+//   words: 2,
 // }
