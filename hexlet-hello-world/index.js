@@ -1,25 +1,21 @@
-import fill from './objects.js';
-
-const company = {
-  name: null,
-  state: 'moderating',
-};
+import cloneDeep from './objects.js';
 
 const data = {
-  name: 'Hexlet',
-  state: 'published',
+  key: 'value',
+  key2: {
+    key: 'innerValue',
+    innerKey: {
+      anotherKey: 'anotherValue',
+    },
+  },
 };
 
-// Вызовы ниже нужно рассматривать как независимые
+// result имеет такую же структуру, как и data
 
-console.log(fill(company, ['name'], data));
-// {
-//   name: 'Hexlet',
-//   state: 'moderating',
-// }
+const result = cloneDeep(data);
 
-console.log(fill(company, [], data));
-// {
-//   name: 'Hexlet',
-//   state: 'published',
-// }
+// Но внутри другие объекты
+
+console.log(result.key2 !== data.key2); // true
+
+console.log(result.key2.innerKey !== data.key2.innerKey); // true
