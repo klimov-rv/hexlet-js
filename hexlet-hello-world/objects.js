@@ -1,18 +1,5 @@
-export default function pick(obj, arProps) {
-  const result = {};
+import _ from 'lodash';
 
-  const entries = Object.entries(obj);
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of entries) {
-    for (let i = 0; i < arProps.length; i += 1) {
-    //   console.log(key);
-    //   console.log(value);
-      if (key === arProps[i]) {
-        result[key] = value;
-        // console.log(arProps[i]);
-      }
-    }
-  }
-
-  return result;
+export default function get(obj, arProps) {
+  return _.get(obj, arProps, 'null');
 }

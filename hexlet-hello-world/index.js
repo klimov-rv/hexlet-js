@@ -1,14 +1,23 @@
-import pick from './objects.js';
+import get from './objects.js';
 
 const data = {
   user: 'ubuntu',
-  cores: 4,
-  os: 'linux',
+  hosts: {
+    0: {
+      name: 'web1',
+    },
+    1: {
+      name: 'web2',
+      null: 3,
+      active: false,
+    },
+  },
 };
 
-console.log(pick(data, ['user'])); // { user: 'ubuntu' }
-console.log(pick(data, ['user', 'os'])); // { user: 'ubuntu', os: 'linux' }
-console.log(pick(data, [])); // {}
-// Если такого свойства нет в исходных данных,
-// то оно игнорируется
-console.log(pick(data, ['none', 'cores'])); // { cores: 4 }
+console.log(get(data, ['undefined'])); // null
+console.log(get(data, ['user'])); // 'ubuntu'
+console.log(get(data, ['user', 'ubuntu'])); // null
+console.log(get(data, ['hosts', 1, 'name'])); // 'web2'
+console.log(get(data, ['hosts', 0])); // { name: 'web1' }
+console.log(get(data, ['hosts', 1, null])); // 3
+console.log(get(data, ['hosts', 1, 'active'])); // false
