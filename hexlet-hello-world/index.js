@@ -1,18 +1,10 @@
-import make from './objects.js';
+import getSortedNames from './getnames.js';
 
-const company1 = make('Hexlet');
-console.log(company1);
-// {
-//   name: 'Hexlet',
-//   state: 'moderating',
-//   createdAt: <тут текущая дата>
-// }
+const users = [
+  { name: 'bronn', gender: 'male', birthday: '1973-03-23' },
+  { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
+  { name: 'eiegon', gender: 'male', birthday: '1963-11-03' },
+  { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
+];
 
-const company2 = make('Hexlet', { website: 'hexlet.io', state: 'published' });
-console.log(company2);
-// {
-//   name: 'Hexlet',
-//   website: 'hexlet.io',
-//   state: 'published',
-//   createdAt: <тут текущая дата>
-// }
+console.log(getSortedNames(users)); // ['Bronn', 'Eiegon', 'Reigar', 'Sansa']
