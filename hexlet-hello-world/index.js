@@ -1,7 +1,7 @@
 import scrabble from './scrabble.js';
  
-scrabble('rkqodlw', 'world'); // true
-scrabble('avj', 'java'); // false
-scrabble('avjafff', 'java'); // true
-scrabble('', 'hexlet'); // false
-scrabble('scriptingjava', 'JavaScript'); // true
+console.log(scrabble('rkqodlw', 'world')); // true
+console.log(scrabble('avj', 'java')); // false
+console.log(scrabble('avjafff', 'java')); // true
+console.log(scrabble('', 'hexlet')); // false
+console.log(scrabble('scriptingjava', 'JavaScript')); // true
