@@ -1,18 +1,27 @@
-import _ from 'lodash';
-import crc32 from 'crc-32';
+// import _ from 'lodash';
+import { bstr, buf, str } from "crc-32";
 
-export default function make(usersObjs)  {  
-    const data = 'Hello, world!'; // Любые данные, которые мы хотим хешировать
-    const hash = crc32.str(data);
-    return hash;
+export function make() { 
+    return new Map();
 }
-export function get(usersObjs)  { 
-    const data = 'Hello, Roma!'; // Любые данные, которые мы хотим хешировать
-    const hash = crc32.str(data);
-    return hash;
+export function set(map, key, value) {
+    let notCollision = true;
+    const hash = bstr(key); 
+    if (map.has(hash)) {
+        notCollision = false;
+    } else {
+        map.set(hash, [key, value]);
+    } 
+    return notCollision;
 }
-export function set(usersObjs)  { 
-    const data = 'Hello, Yaroslava!'; // Любые данные, которые мы хотим хешировать
-    const hash = crc32.str(data);
-    return hash;
+export function get(map, key, defaultValue = null)  {
+    let result;
+    const hash = bstr(key); 
+    if (map.has(hash)) {
+        result = map.get(hash);
+        result = result[1];
+    } else { 
+        result = defaultValue;
+    }
+    return result;
 }

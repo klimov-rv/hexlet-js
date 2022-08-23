@@ -1,10 +1,12 @@
-import getSortedNames from './getnames.js';
-
-const users = [
-  { name: 'bronn', gender: 'male', birthday: '1973-03-23' },
-  { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
-  { name: 'eiegon', gender: 'male', birthday: '1963-11-03' },
-  { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
-];
-
-console.log(getSortedNames(users)); // ['Bronn', 'Eiegon', 'Reigar', 'Sansa']
+import { make, set, get } from './map.js';
+ 
+const map = make();
+let result = get(map, 'key');
+console.log(result); // => null
+ 
+result = get(map, 'key', 'default_value');
+console.log(result); // => "default_value"
+ 
+set(map, 'key2', 'value2');
+result = get(map, 'key2');
+console.log(result); // => "value2"
