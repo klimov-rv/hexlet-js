@@ -1,7 +1,14 @@
-import scrabble from './scrabble.js';
- 
-console.log(scrabble('rkqodlw', 'world')); // true
-console.log(scrabble('avj', 'java')); // false
-console.log(scrabble('avjafff', 'java')); // true
-console.log(scrabble('', 'hexlet')); // false
-console.log(scrabble('scriptingjava', 'JavaScript')); // true
+import findWhere from './arrays.js';
+
+console.log(findWhere(
+    [
+      { title: 'Book of Fooos', author: 'FooBar', year: 1111 },
+      { title: 'Cymbeline', author: 'Shakespeare', year: 1611 },
+      { title: 'The Tempest', author: 'Shakespeare', year: 1611 },
+      { title: 'Book of Foos Barrrs', author: 'FooBar', year: 2222 },
+      { title: 'Still foooing', author: 'FooBar', year: 3333 },
+      { title: 'Happy Foo', author: 'FooBar', year: 4444 },
+    ],
+    { author: 'Shakespeare', year: 1611 }
+  )); // { title: 'Cymbeline', author: 'Shakespeare', year: 1611 }
+  
